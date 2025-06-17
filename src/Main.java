@@ -1,25 +1,25 @@
 public class Main {
     public static void main(String[] args) {
-        String input = "10";
+        String input = "3*4";
 
-        try{
-            boolean result = validateTokenCount(input);
-
-            if (result) {
-                System.out.println("숫자 2개");
-            }
-        }catch (NumberFormatException e){
+        try {
+            int result = multiply(input);
+            System.out.println("결과: " + result);
+        } catch (NumberFormatException e) {
             System.out.println(e.getMessage());
         }
-
-
     }
 
-    public static boolean validateTokenCount(String tokens) throws NumberFormatException {
-        if (tokens.length() != 2) {
-            throw new NumberFormatException("숫자 2개가 아닙니다.");
+    public static int multiply(String input) throws NumberFormatException {
+        String[] tokens = input.split("\\*");
+
+        if (tokens.length != 2) {
+            throw new NumberFormatException("입력은 숫자 2개여야 합니다.");
         }
 
-        return true;
+        int a = Integer.parseInt(tokens[0].trim());
+        int b = Integer.parseInt(tokens[1].trim());
+
+        return a * b;
     }
 }

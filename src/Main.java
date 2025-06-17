@@ -1,15 +1,14 @@
 public class Main {
     public static void main(String[] args) {
-        int a = 10;
-        int b = 0; // 0번일 경우 catch 예외처리 2번일 경우 트라이 처리
+        String input = "123a";
 
-        try{
-            int result = a/ b;
-            System.out.println(result);
-        }catch (ArithmeticException e){
-            System.out.println(e.toString());
+        try {
+            int number = Integer.parseInt(input);
 
-            System.out.println("Error: Division by zero.");
+            System.out.println("당신이 입력한 숫자는 " + number + "입니다.");
+        } catch(NumberFormatException e) {
+            System.out.println("숫자 포맷이 아닙니다.");
         }
+
     }
 }
